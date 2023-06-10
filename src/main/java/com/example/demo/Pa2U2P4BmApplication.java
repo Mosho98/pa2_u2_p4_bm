@@ -21,11 +21,23 @@ public class Pa2U2P4BmApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		Estudiante estu = new Estudiante();
-		estu.setNombre("Bryan");
-		estu.setApellido("Mullo");
-		estu.setCedula("1753054285");
-		this.estudianteService.insertar(estu);
+		/*Estudiante estu = new Estudiante();
+		estu.setNombre("Maoly");
+		estu.setApellido("Loor");
+		estu.setCedula("12345678");
+		this.estudianteService.crear(estu);*/
+		
+		Estudiante actu = this.estudianteService.buscar("1753054285");		
+		System.out.println(actu);
+		System.out.println("//////////////////////////////////////////////////");
+		actu.setApellido("Paucar");
+		//this.estudianteService.actualizar(actu);
+		
+		this.estudianteService.borrar("12345678");
+		
+		
+		
+		
 		
 	}
 

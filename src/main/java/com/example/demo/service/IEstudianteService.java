@@ -4,5 +4,9 @@ import com.example.demo.modelo.Estudiante;
 
 public interface IEstudianteService {
 
-	public void insertar(Estudiante estudiante);
+
+	public void crear(Estudiante estudiante);
+	public Estudiante buscar(String cedula);
+	public void actualizar(Estudiante estudiante);
+	public void borrar(String cedula);
 }
