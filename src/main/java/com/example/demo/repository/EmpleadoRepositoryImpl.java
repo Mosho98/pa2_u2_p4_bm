@@ -34,8 +34,8 @@ public class EmpleadoRepositoryImpl implements EmpleadoRepository{
 
 	@Override
 	public void eliminar(Integer id) {
-		
-		this.entityManager.remove(this.seleccionar(id));
+		Empleado empleado = this.seleccionar(id);
+		this.entityManager.remove(empleado);
 	}
 
 }

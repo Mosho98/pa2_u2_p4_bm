@@ -1,26 +1,29 @@
 package com.example.demo;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.modelo.Autor;
-import com.example.demo.modelo.Libro;
-import com.example.demo.service.IAutorService;
-import com.example.demo.service.ILibroService;
+import com.example.demo.modelo.Ciudadano;
+import com.example.demo.modelo.Empleado;
+import com.example.demo.service.CiudadanoService;
+import com.example.demo.service.IHotelService;
 
 @SpringBootApplication
 public class Pa2U2P4AaApplication implements CommandLineRunner{
 	
 	
 	@Autowired
-	private IAutorService autorService;
+	private IHotelService hotelService;
+	
+	
 	@Autowired
-	private ILibroService iLibroService;
+	private CiudadanoService ciudadanoService;
+	
+	
 	
 	
 
@@ -30,25 +33,39 @@ public class Pa2U2P4AaApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
 		
-		Autor autor = new Autor();
-		autor.setNombre("Bryan");
-		autor.setApellido("Mullo");
 		
-		Libro libro = new Libro();
+		Empleado e1 = new Empleado();
 		
-		 Set<Libro> libros = new HashSet<Libro>();
-		 libros.add(libro);		 
-		 Set<Autor> autores = new HashSet<Autor>();
-		 autores.add(autor);
-		 
-		 autor.setLibros(libros);
-		 libro.setAutores(autores);
-		 
-		 
-
-		 this.autorService.crear(autor);
+		Ciudadano c1 = new Ciudadano();
+		c1.setNombre("Bryan");
+		c1.setApellido("Mullo");
+		c1.setCedula("1753054285");
+		
+		
+		e1.setSueldo(new BigDecimal(900));
+		e1.setCargo("Coordinador");
+		e1.setCiudadano(c1);
+		c1.setEmpleado(e1);
+		
+		this.ciudadanoService.registrar(c1);
+		
+		Ciudadano buscar = this.ciudadanoService.buscar(10);
+		System.out.println("///////////////////BUSCAR//////////////");
+		System.out.println(buscar);
+		
+		buscar.setApellido("Loor");
+		this.ciudadanoService.guardar(buscar);
+		System.out.println("///////////////////ACTUALZIAR//////////////");
+		System.out.println(buscar);
+	
+		this.ciudadanoService.borrar(12);
+		
+		
+		
+	
+		
+		
 		
 		
 

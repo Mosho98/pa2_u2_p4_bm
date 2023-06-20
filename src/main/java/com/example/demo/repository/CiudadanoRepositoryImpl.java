@@ -35,8 +35,8 @@ public class CiudadanoRepositoryImpl implements CiudadanoRepository{
 
 	@Override
 	public void eliminar(Integer id) {
-		
-		this.entityManager.remove(this.seleccionar(id));
+		Ciudadano habitacion = this.seleccionar(id);
+		this.entityManager.remove(habitacion);
 	}
 
 }
