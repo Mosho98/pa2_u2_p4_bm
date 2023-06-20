@@ -35,8 +35,8 @@ public class AutorRepoImpl implements IAutorRepository{
 
 	@Override
 	public void eliminar(Integer id) {
-		// TODO Auto-generated method stub
-		this.entityManager.remove(id);;
+		Autor autor = this.buscar(id);
+		this.entityManager.remove(autor);;
 	}
 
 }

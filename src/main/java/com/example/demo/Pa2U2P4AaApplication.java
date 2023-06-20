@@ -1,32 +1,25 @@
 package com.example.demo;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.modelo.Habitacion;
-import com.example.demo.modelo.Hotel;
-import com.example.demo.service.CiudadanoService;
-import com.example.demo.service.IHotelService;
+import com.example.demo.modelo.Autor;
+import com.example.demo.modelo.Libro;
+import com.example.demo.service.IAutorService;
+import com.example.demo.service.ILibroService;
 
 @SpringBootApplication
 public class Pa2U2P4AaApplication implements CommandLineRunner{
 	
 	
-	@Autowired
-	private IHotelService hotelService;
-	
-	
-	@Autowired
-	private CiudadanoService ciudadanoService;
-	
-	
-	
+@Autowired
+private IAutorService autorService;
+
 	
 
 	public static void main(String[] args) {
@@ -36,41 +29,42 @@ public class Pa2U2P4AaApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		List<Habitacion> habitaciones = new ArrayList<>();
-		Hotel h1 = new Hotel();
-		h1.setNombre("COCO BEACH");
-		h1.setDireccion("PEDERNALES");
+		Set<Libro> libros = new HashSet<Libro> (); 
+		Set<Autor> autores = new HashSet<Autor>();
+		Autor au1 = new Autor();
+		au1.setNombre("Hernando");
+		au1.setApellido("Loor");
 		
-		Habitacion hab1 = new Habitacion();
-		hab1.setNumero("A3");
-		hab1.setValor(new BigDecimal(100));
-		hab1.setHotel(h1);
+		Libro l1 = new Libro();
+		l1.setTitulo("SISTEMAS");
+		l1.setEditorial("Mullo");
 		
-		Habitacion hab2 = new Habitacion();
-		hab2.setNumero("A4");
-		hab2.setValor(new BigDecimal(130));
-		hab2.setHotel(h1);
+		Libro l2 = new Libro();
+		l2.setTitulo("SOFTWARE");
+		l2.setEditorial("Mullo");
 		
-		habitaciones.add(hab1);
-		habitaciones.add(hab2);
+		libros.add(l1);
+		libros.add(l2);
 		
-		h1.setHabitaciones(habitaciones);
-		this.hotelService.crear(h1);
+		autores.add(au1);
 		
+		l1.setAutores(autores);
+		l2.setAutores(autores);
 		
-		Hotel buscar = this.hotelService.seleccionar(2);
-		System.out.println("////////////////////////////////////////////////////");
-		System.out.println(buscar);
+		au1.setLibros(libros);
 		
+		this.autorService.crear(au1);
+
+		Autor autor = this.autorService.buscarAutor(11);
+		System.out.println("/////////////////////////BUSCAR///////////////////");
+		System.out.println(autor);
 		
-		buscar.setNombre("ARENA Y MAR");
-		this.hotelService.actualizar(buscar);
+		autor.setApellido("PAUCAR");
+		this.autorService.actualizar(autor);
+		System.out.println("/////////////////////////ACTUALIZAR///////////////////");
+		System.out.println(autor);
 		
-		System.out.println("/////////////////////ACTUALIZAR/////////////////");
-		System.out.println(buscar);
-		
-		this.hotelService.eliminar(5);
-		
+		this.autorService.eliminar(9);
 		
 		
 	

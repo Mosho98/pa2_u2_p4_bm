@@ -35,8 +35,8 @@ public class LibroRepoImpl implements ILibroRepository{
 
 	@Override
 	public void eliminar(Integer id) {
-		// TODO Auto-generated method stub
-		this.entityManager.remove(id);
+		Libro libro = this.buscar(id);
+		this.entityManager.remove(libro);
 	}
 
 }

@@ -30,10 +30,8 @@ public class Libro {
 	@Column(name = "lib_editorial")
 	private String editorial;
 	
-	@ManyToMany
-	@JoinTable(name = "autor_libro", 
-	joinColumns = @JoinColumn(name = "auli_id_libro"), 
-	inverseJoinColumns = @JoinColumn(name = "auli_id_autor"))
+	@ManyToMany(mappedBy = "libros", cascade = CascadeType.ALL)
+	
 	private Set<Autor> autores;
 
 	
