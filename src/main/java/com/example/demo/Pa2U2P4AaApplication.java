@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -32,27 +30,38 @@ private IEstudianteService estudianteService;
 		
 		//this.estudianteService.agregar(e1);
 	
-		System.out.println("///////////////BUSQUEDA POR APELLIDO////////////////");
-		Estudiante estu = this.estudianteService.buscarPorApellido("Mullo");		
-		System.out.println(estu);
+	
+		
+		System.out.println("\n///////////////BUSQUEDA POR APELLIDO NAMED////////////////");
+		Estudiante named = this.estudianteService.buscaPorApellidoNamed("Mullo");
+		System.out.println(named);
+
+		System.out.println("\n///////////////BUSQUEDA POR APELLIDO TYPED NAMED QUERY////////////////");
+		Estudiante namedTyped = this.estudianteService.seleccionarPorApellidoNamedQuery("Mullo");
+		System.out.println(namedTyped);
+		
+		System.out.println("\n///////////////BUSQUEDA POR NOMBRE TYPED NAMED QUERY////////////////");
+		Estudiante namedTypedNombre = this.estudianteService.seleccionarPorNombreNamedQuery("Bryan");
+		System.out.println(namedTypedNombre);
 		
 		
-		System.out.println("////////////////BUSCAR LISTA DE ESTUDIANTES///////////////");
-		List<Estudiante> estudiantes = this.estudianteService.reporteEstudiantes("Paucar");
+		System.out.println("\n///////////////BUSQUEDA POR APELLIDO TYPED NATIVE QUERY////////////////");
+		Estudiante nativeQuery = this.estudianteService.seleccionarPorApellidoNativeQuery("Mullo");
+		System.out.println(nativeQuery);
 		
-		for(Estudiante esdt : estudiantes) {
-			System.out.println(esdt);
-		}
+		System.out.println("\n///////////////BUSQUEDA POR APELLIDO TYPED NAMED NATIVE QUERY////////////////");
+		Estudiante nativeNamed = this.estudianteService.seleccionarPorApellidoNativeQueryNamed("Mullo");
+		System.out.println(nativeNamed);
+		
+		System.out.println("\n///////////////BUSQUEDA POR NOMBRE TYPED NAMED NATIVE QUERY////////////////");
+		Estudiante nativeNamedNombre = this.estudianteService.seleccionarPorNombreNativeQueryNamed("Fernando");
+		System.out.println(nativeNamedNombre);
+		
+		System.out.println("\n///////////////BUSQUEDA POR APELLIDO CRITERIA API QUERY QUERY////////////////");
+		//Estudiante ncriteriaApiQuery = this.estudianteService.se
+		//System.out.println(ncriteriaApiQuery);
 		
 		
-		System.out.println("///////////////////BUSCAR POR APELLIDO Y NOMBRE////////");
-		Estudiante estu1 = this.estudianteService.reportePorApellidoyNombre("Paucar", "Maoly");
-		System.out.println(estu1);
-		
-		
-		System.out.println("///////////////BUSQUEDA POR APELLIDO TYPED////////////////");
-		Estudiante typed = this.estudianteService.reportePorApellidoTyped("Mullo");
-		System.out.println(typed);
 		
 
 		
