@@ -24,42 +24,32 @@ private IEstudianteService estudianteService;
 	public void run(String... args) throws Exception {
 		
 		Estudiante e1 = new Estudiante();
-		e1.setNombre("Maoly");
-		e1.setApellido("Paucar");
-		e1.setCedula("12345");
+		e1.setNombre("Maria");
+		e1.setApellido("Palma");
+		e1.setCedula("1234567");
+		e1.setPeso(70.00);
 		
 		//this.estudianteService.agregar(e1);
+		
+		Estudiante peso = this.estudianteService.seleccionarEstudinteDinamico("Maria", "Palma", 70.00);
+		
+		System.out.println("////////////////////////////ESTUDIANTE PESO////////////////////////////");
+		System.out.println(peso);
+		
+		
+		System.out.println("////////////////////////////ELIMINAR DINAMICO////////////////////////////");
+		int eliminarNombre = this.estudianteService.eliminarPorNombre("Eduardo");
+		System.out.println(eliminarNombre);
+		
+		System.out.println("\n////////////////////////////ACTUALIZAR DINAMICO////////////////////////////");
+		int actualizar = this.estudianteService.actualizarPorApellido("Juan", "Palma");
+		System.out.println(actualizar);
 	
 	
 		
-		System.out.println("\n///////////////BUSQUEDA POR APELLIDO NAMED////////////////");
-		Estudiante named = this.estudianteService.buscaPorApellidoNamed("Mullo");
-		System.out.println(named);
-
-		System.out.println("\n///////////////BUSQUEDA POR APELLIDO TYPED NAMED QUERY////////////////");
-		Estudiante namedTyped = this.estudianteService.seleccionarPorApellidoNamedQuery("Mullo");
-		System.out.println(namedTyped);
-		
-		System.out.println("\n///////////////BUSQUEDA POR NOMBRE TYPED NAMED QUERY////////////////");
-		Estudiante namedTypedNombre = this.estudianteService.seleccionarPorNombreNamedQuery("Bryan");
-		System.out.println(namedTypedNombre);
+	
 		
 		
-		System.out.println("\n///////////////BUSQUEDA POR APELLIDO TYPED NATIVE QUERY////////////////");
-		Estudiante nativeQuery = this.estudianteService.seleccionarPorApellidoNativeQuery("Mullo");
-		System.out.println(nativeQuery);
-		
-		System.out.println("\n///////////////BUSQUEDA POR APELLIDO TYPED NAMED NATIVE QUERY////////////////");
-		Estudiante nativeNamed = this.estudianteService.seleccionarPorApellidoNativeQueryNamed("Mullo");
-		System.out.println(nativeNamed);
-		
-		System.out.println("\n///////////////BUSQUEDA POR NOMBRE TYPED NAMED NATIVE QUERY////////////////");
-		Estudiante nativeNamedNombre = this.estudianteService.seleccionarPorNombreNativeQueryNamed("Fernando");
-		System.out.println(nativeNamedNombre);
-		
-		System.out.println("\n///////////////BUSQUEDA POR APELLIDO CRITERIA API QUERY QUERY////////////////");
-		//Estudiante ncriteriaApiQuery = this.estudianteService.se
-		//System.out.println(ncriteriaApiQuery);
 		
 		
 		

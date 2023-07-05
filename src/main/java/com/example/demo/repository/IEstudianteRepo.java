@@ -36,6 +36,12 @@ public interface IEstudianteRepo {
 	
 	public Estudiante seleccionarPorApellidoCriteriaApiQuery(String apellido);
 	
+	public Estudiante seleccionarEstudinteDinamico(String nombre, String apellido, Double peso);
+	
+	public int eliminarPorNombre(String nombre);
+	
+	public int actualizarPorApellido(String nombre, String apellido);
+	
 	
 	
 

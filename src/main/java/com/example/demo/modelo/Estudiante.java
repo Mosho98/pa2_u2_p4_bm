@@ -41,6 +41,18 @@ public class Estudiante {
 
 	@Column(name = "estu_cedula")
 	private String cedula;
+	
+	@Column(name = "estu_peso")
+	private Double peso;
+	
+
+	public Double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
 
 	// SET Y GET
 	public String getNombre() {
