@@ -1,12 +1,16 @@
 package com.example.demo;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.modelo.Estudiante;
+import com.example.demo.modelo.Vehiculo;
 import com.example.demo.service.IEstudianteService;
+import com.example.demo.service.IVehiculoService;
 
 @SpringBootApplication
 public class Pa2U2P4AaApplication implements CommandLineRunner{
@@ -20,10 +24,14 @@ private IEstudianteService estudianteService;
 		SpringApplication.run(Pa2U2P4AaApplication.class, args);
 	}
 
+	@Autowired
+	private IVehiculoService iVehiculoService;
+	
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Estudiante e1 = new Estudiante();
+		/*Estudiante e1 = new Estudiante();
 		e1.setNombre("Maria");
 		e1.setApellido("Palma");
 		e1.setCedula("1234567");
@@ -43,10 +51,21 @@ private IEstudianteService estudianteService;
 		
 		System.out.println("\n////////////////////////////ACTUALIZAR DINAMICO////////////////////////////");
 		int actualizar = this.estudianteService.actualizarPorApellido("Juan", "Palma");
-		System.out.println(actualizar);
+		System.out.println(actualizar);*/
 	
 	
+		Vehiculo v1 = new Vehiculo();
+		v1.setModelo("BT50");
+		v1.setMarca("Mazda");
+		v1.setPlaca("HBO1970");
+		v1.setColor("Rojo");
+		v1.setAnio("2014");
+		v1.setPrecio(new BigDecimal(14000));
+		//this.iVehiculoService.insertarVehiculo(v1);
 		
+		System.out.println("////////////////////////////VEHICULO////////////////////////////");
+		Vehiculo vehi = this.iVehiculoService.seleccionarVehiculoDinamico("Rojo", "Mazda", new BigDecimal(14000));
+		System.out.println(vehi);
 	
 		
 		
