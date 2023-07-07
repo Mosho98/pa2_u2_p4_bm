@@ -74,7 +74,7 @@ public class VehiculoRepoImpl implements IVehiculoRepository{
 
 	@Override
 	public int actualizarPorAnio(String modelo, String anio) {
-		Query myQuery = this.entityManager.createQuery("UPDATE Vehicula e SET e.modelo = :datoModelo WHERE e.anio = :datoAnio");
+		Query myQuery = this.entityManager.createQuery("UPDATE Vehiculo e SET e.modelo = :datoModelo WHERE e.anio = :datoAnio");
 		myQuery.setParameter("datoModelo", modelo);
 		myQuery.setParameter("datoAnio", anio);
 		

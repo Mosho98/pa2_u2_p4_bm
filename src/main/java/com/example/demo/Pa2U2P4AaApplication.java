@@ -55,19 +55,25 @@ private IEstudianteService estudianteService;
 	
 	
 		Vehiculo v1 = new Vehiculo();
-		v1.setModelo("BT50");
-		v1.setMarca("Mazda");
-		v1.setPlaca("HBO1970");
+		v1.setModelo("Sail");
+		v1.setMarca("Chevrolet");
+		v1.setPlaca("LBB7250");
 		v1.setColor("Rojo");
-		v1.setAnio("2014");
-		v1.setPrecio(new BigDecimal(14000));
+		v1.setAnio("2015");
+		v1.setPrecio(new BigDecimal(8000));
 		//this.iVehiculoService.insertarVehiculo(v1);
 		
 		System.out.println("////////////////////////////VEHICULO////////////////////////////");
 		Vehiculo vehi = this.iVehiculoService.seleccionarVehiculoDinamico("Rojo", "Mazda", new BigDecimal(14000));
 		System.out.println(vehi);
 	
+		System.out.println("////////////////////////////ELIMINAR DINAMICO////////////////////////////");
+		int eliminarPorPlaca = this.iVehiculoService.eliminarPorPlaca("LBB7250");
+		System.out.println("Se eliminaron: " + eliminarPorPlaca);
 		
+		System.out.println("\n////////////////////////////ACTUALIZAR DINAMICO////////////////////////////");
+		int actualizar = this.iVehiculoService.actualizarPorAnio("BT50123", "2014");
+		System.out.println("Se actualizaron: " + actualizar);
 		
 		
 		
