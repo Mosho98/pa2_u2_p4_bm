@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +38,12 @@ public class HotelServiceImpl implements IHotelService{
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
 		this.hotelRepository.eliminar(id);
+	}
+
+	@Override
+	public List<Hotel> buscarHotel(BigDecimal valor) {
+		// TODO Auto-generated method stub
+		return this.hotelRepository.buscarHotel(valor);
 	}
 
 }
